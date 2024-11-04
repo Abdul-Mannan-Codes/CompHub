@@ -79,6 +79,60 @@
             </div>
         </div>
     </section>
+    <section id="count-section" onmouseenter="startCounter()">
+        <div class="container grid">
+            <div class="transparent-box grid-item">
+                <h1 id="account-count">0</h1>
+                <p class="subtitle">Student Accounts</p>
+            </div>
+            <div class="transparent-box grid-item">
+                <h1 id="resource-count">0</h1>
+                <p class="subtitle">Study Resources</p>
+            </div>
+            <div class="transparent-box grid-item">
+                <h1 id="project-count">0</h1>
+                <p class="subtitle">Micro Projects</p>
+            </div>
+            
+        </div>
+    </section>
+    <section id="about-us">
+        <div class="about-container flex center">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>We are dedicated to providing top-quality services that meet the needs of our clients. Our mission is to deliver outstanding solutions through innovation and excellence, constantly striving to exceed expectations and build long-lasting relationships.</p>
+                <p>Our team is composed of experts with diverse backgrounds, bringing unique insights and experiences to every project. Together, we work collaboratively to achieve our vision and make a positive impact in the industry.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/about-us.jpg" alt="About Us"" onmouseleave="changeBgColor(false)"/>
+            </div>
+        </div>
+    </section>
+    <section id="contact-us">
+        <div class="contact-container flex center">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or inquiries, feel free to reach out to us. We're here to help and look forward to hearing from you!</p>
+                <div class="contact-details">
+                    <p><strong>Address:</strong> 1234 Elm Street, Cityville, Country</p>
+                    <p><strong>Email:</strong> contact@website.com</p>
+                    <p><strong>Phone:</strong> +123 456 7890</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <input type="button" value="Projects" class="inline">
+                    <input type="button" value="Materials" class="inline">
+                    <input type="button" value="Other" class="inline">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" id="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
