@@ -35,7 +35,7 @@
     </section>
     <div class="create-account-container">
         <h2>Create Account</h2>
-        <form action="#" method="post">
+        <form onsubmit="createAccount(event)" method="post">
             <label for="Name">Name</label>
             <input type="text" id="name" name="name" class="letter-space" onchange="checkName(this)" onblur="if(this.value==''){errorBorder(this,false);}" required>
             
@@ -69,7 +69,7 @@
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirm-password" class="letter-space" oninput="checkConfirmPassword(this)" required onblur="if(this.value==''){errorBorder(this,false);}">
 
-            <button type="submit" onclick="createAccount()">Create Account</button>
+            <button type="submit">Create Account</button>
         </form>
     </div>
     

@@ -176,57 +176,7 @@ function checkConfirmPassword(cpw){
 }
 //Create Account
 function createAccount(){
-    var username = document.getElementById('username').value;
-    var passwd = pw.value;
-    localStorage.setItem("Username",username);
-    localStorage.setItem("Password",passwd);
-    var file=`
-<head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Create Account | CompHub</title>
-        <link rel="stylesheet" href="style2.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
-    </head>
-</head>
-<section id="nav" class="padding">
-        <div class="navbar flex">
-            <div class="logo-div">
-                <img src="images/comphub-logo.png" alt="CompHub Logo">
-            </div>
-            <div class="nav-links">
-                <ul class="nav-list flex">
-                    <a href="#"><li class="nav-item"> HOME </li>  </a>
-                    <a href="#"><li class="nav-item"> EXPLORE </li>  </a>
-                    <a href="#"><li class="nav-item"> SEARCH </li>  </a>
-                    <a href="#"><li class="nav-item"> COLLECTION </li>  </a>
-                    <a href="#"><li class="nav-item"> ABOUT </li>  </a>
-                    <a href="profile.html"><li class="nav-item" onmouseover="display('.profile-icon-round')" onmouseleave="hide('.profile-icon-round')"> <i class="fa-solid fa-user"></i> </li>  </a>
-                    <div class="profile-icon-round"></div>
-                </ul>
-                
-            </div>
-        </div>
-    </section>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-button">Login</button>
-        </form>
-    </div>
-    <script src="script.js"> </script>`;
-    document.write(file);
+    event.preventDefault();
+    localStorage.setItem("Username",document.getElementById('username').value);
+    window.history.back();
 }
