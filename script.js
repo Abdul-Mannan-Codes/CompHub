@@ -2,6 +2,7 @@ var flag=true, n=0,timer1,timer2,timer3;
 var acc = document.querySelector('#account-count');
 var res = document.querySelector('#resource-count');
 var proj = document.querySelector('#project-count');
+
 function loadContent(){
     let image;
     for(let i=1;i<7;i++){
@@ -13,17 +14,14 @@ function loadContent(){
             image.style.backgroundImage = ` linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1)), url("images/comp${i}.jpg")`;
     }
     if(localStorage.getItem('username')==null){
-        display('#create-account');
+        display('#create-account',"");
     }
     else{
-        hide('#create-account');
+        display('#create-account',"none");
     }
 }
-function display(element){
-    document.querySelector(element).style.display = "";
-}
-function hide(element){
-    document.querySelector(element).style.display = "none";
+function display(element,value){
+    document.querySelector(element).style.display = value;
 }
 function startCounter(){
     if(flag){
@@ -58,4 +56,177 @@ function incProject(){
         proj.textContent += '+';
     }
     n++;
+}
+//Search Suggestion Function
+var searchList = document.getElementsByClassName('search-item');
+var searchValue;
+function showSuggestions(search){
+    searchValue = search.value.toLowerCase();
+    if(searchValue!="" || searchValue!=null){
+        display('.search-suggestion',"block");
+        for(let i=0;i<searchList.length;i++){
+            if(searchList[i].textContent.toLowerCase().indexOf(searchValue) != -1){
+                searchList[i].style.display = "block";
+            }
+            else{
+                searchList[i].style.display = "none";
+            }
+        }
+    }else{
+        display('.search-suggestion',"none");
+    }
+}
+//Form Validations
+function changeColor(element,color){
+    element.style.color = color;
+}
+var list = document.getElementsByClassName('password-rules');
+var li = new Array(4);
+var pw = document.getElementById('password');
+for(let i=1;i<5;i++){
+    li[i-1] = document.getElementById(`rule${i}`);
+}
+
+var pw=document.getElementById('password');
+var pwValidity = 0;
+function errorBorder(element,flag){
+    if(flag)
+        element.style.border = "1px solid red";
+    else    
+        element.style.border = "1px solid var(--color3)";
+}
+function checkPassword(){
+    var pwRegex1 = /[A-Z]+/;
+    var pwRegex2 = /[0-9]+/;
+    var pwRegex3 = /[^A-Za-z0-9]+/;
+    var pwRegex4 = /[a-z]+/;
+    if(pwRegex1.test(pw.value)){
+        changeColor(li[1],"green");
+        pwValidity++;
+    }else{
+        changeColor(li[1],"red");
+        pwValidity--;
+    }
+    if(pwRegex2.test(pw.value)){
+        changeColor(li[2],"green");
+        pwValidity++;
+    }else{
+        changeColor(li[2],"red");
+        pwValidity--;
+    }
+    if(pwRegex3.test(pw.value)){
+        changeColor(li[3],"green");
+        pwValidity++;
+    }else{
+        changeColor(li[3],"red");
+        pwValidity--;
+    }
+    if(pwRegex4.test(pw.value)){
+        if(pw.value.length >=8 && pw.value.length<=16){
+            changeColor(li[0],"green");
+            pwValidity++;
+        }else{
+        changeColor(li[0],"red");
+        pwValidity--;
+    }
+    }
+}
+
+function checkSpecify(){
+    const professionSelect = document.getElementById('profession');
+    if (professionSelect.value === 'other') {
+        display("#other-profession","block");
+    } else {
+        display("#other-profession","none");
+    }
+}
+function checkName(name){
+    var regex = /^[A-Za-z ]{2,25}$/;
+    if(!regex.test(name.value)){
+        errorBorder(name,true);
+        
+    }
+    else{
+        errorBorder(name,false);
+    }
+}
+function checkUsername(username){
+    var regex = /^[a-z0-9._]{5,20}$/;
+    if(!regex.test(username.value)){
+        errorBorder(username,true);
+    }
+    else{
+        errorBorder(username,false);
+    }
+}
+function checkAge(age){
+    if(!(age.value>=10 && age.value<=100)){
+        errorBorder(age,true);
+    }else{
+        errorBorder(age,false);
+    }
+}
+function checkConfirmPassword(cpw){
+    if(pw.value !== cpw.value){
+        errorBorder(cpw,true);
+    }
+    else{
+        errorBorder(cpw,false);
+    }
+}
+//Create Account
+function createAccount(){
+    var username = document.getElementById('username').value;
+    var passwd = pw.value;
+    localStorage.setItem("Username",username);
+    localStorage.setItem("Password",passwd);
+    var file=`
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Account | CompHub</title>
+        <link rel="stylesheet" href="style2.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
+    </head>
+</head>
+<section id="nav" class="padding">
+        <div class="navbar flex">
+            <div class="logo-div">
+                <img src="images/comphub-logo.png" alt="CompHub Logo">
+            </div>
+            <div class="nav-links">
+                <ul class="nav-list flex">
+                    <a href="#"><li class="nav-item"> HOME </li>  </a>
+                    <a href="#"><li class="nav-item"> EXPLORE </li>  </a>
+                    <a href="#"><li class="nav-item"> SEARCH </li>  </a>
+                    <a href="#"><li class="nav-item"> COLLECTION </li>  </a>
+                    <a href="#"><li class="nav-item"> ABOUT </li>  </a>
+                    <a href="profile.html"><li class="nav-item" onmouseover="display('.profile-icon-round')" onmouseleave="hide('.profile-icon-round')"> <i class="fa-solid fa-user"></i> </li>  </a>
+                    <div class="profile-icon-round"></div>
+                </ul>
+                
+            </div>
+        </div>
+    </section>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    <script src="script.js"> </script>`;
+    document.write(file);
 }

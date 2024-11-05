@@ -20,12 +20,11 @@
             <div class="nav-links">
                 <ul class="nav-list flex">
                     <a href="#"><li class="nav-item"> HOME </li>  </a>
-                    <a href="#"><li class="nav-item"> EXPLORE </li>  </a>
-                    <a href="#"><li class="nav-item"> SEARCH </li>  </a>
-                    <a href="#"><li class="nav-item"> COLLECTION </li>  </a>
-                    <a href="#"><li class="nav-item"> ABOUT </li>  </a>
-                    <a href="profile.html"><li class="nav-item" onmouseover="display('.profile-icon-round')" onmouseleave="hide('.profile-icon-round')"> <i class="fa-solid fa-user"></i> </li>  </a>
-                    <div class="profile-icon-round"></div>
+                    <a href="#explore"><li class="nav-item"> EXPLORE </li>  </a>
+                    <a href="#hero"><li class="nav-item"> SEARCH </li>  </a>
+                    <a href="collection.html"><li class="nav-item"> COLLECTION </li>  </a>
+                    <a href="#about-us"><li class="nav-item"> ABOUT </li>  </a>
+                    <a href="profile.html"><li class="nav-item"> <i class="fa-solid fa-user"></i> </li>  </a>
                 </ul>
                 
             </div>
@@ -37,7 +36,44 @@
             <h3 class="subtitle">Cache for your Syllabus</h3>
             <div class="search-div flex">
                 <i class="fa-solid fa-magnifying-glass" style="color:green"></i>
-                <input type="search" name="search" id="search" placeholder="Search Resources">
+                <input type="search" name="search" id="search" placeholder="Search Resources" oninput="showSuggestions(this)" onblur="display('.search-suggestion','none')">
+            </div>
+            <div class="search-suggestion">
+                <ul class="search-list">
+                    <li class="search-item">Basic Science</li>
+                    <li class="search-item">Basic Mathematics</li>
+                    <li class="search-item">English Communication Skills</li>
+                    <li class="search-item">Engineering Graphics</li>
+                    <li class="search-item">Workshop Practice</li>
+                    <li class="search-item">Information Communication Technology</li>
+                    <li class="search-item">Basic Electronics</li>
+                    <li class="search-item">Elements of Electrical Engineering</li>
+                    <li class="search-item">Applied Mathematics</li>
+                    <li class="search-item">Webpage Designing using HTML</li>
+                    <li class="search-item">Programming in C</li>
+                    <li class="search-item">Computer Peripheral & Hardware maintenance</li>
+                    <li class="search-item">Digital Electronics</li>
+                    <li class="search-item">Computer Graphics</li>
+                    <li class="search-item">Data Structure using C</li>
+                    <li class="search-item">Database Management System</li>
+                    <li class="search-item">Object Oriented Programming</li>
+                    <li class="search-item">Java Programming</li>
+                    <li class="search-item">Software Engineering</li>
+                    <li class="search-item">Microprocessors</li>
+                    <li class="search-item">Data Communication and Computer Networks</li>
+                    <li class="search-item">GUI Application Development using VB.NET</li>
+                    <li class="search-item">Operating Systems</li>
+                    <li class="search-item">Advanced Java Programming</li>
+                    <li class="search-item">Software Testing</li>
+                    <li class="search-item">Client Side Scripting</li>
+                    <li class="search-item">Environmental Studies</li>
+                    <li class="search-item">Capstone Project Planning</li>
+                    <li class="search-item">Management</li>
+                    <li class="search-item">Programming With Python</li>
+                    <li class="search-item">Web Based Application Development using PHP</li>
+                    <li class="search-item">Capstone Project Execution</li>
+                    
+                </ul>
             </div>
         </div>
     </section>
@@ -48,7 +84,7 @@
                 <h6>And much more...</h6>
             </div>
             <div class="btn-div flex center">
-                <button id="create-btn">CREATE ACCOUNT <i class="fa-solid fa-arrow-right-long"></i></button>
+                <button id="create-btn" onclick="window.location.href='account.html';">CREATE ACCOUNT <i class="fa-solid fa-arrow-right-long"></i></button>
             </div>
         </div>
     </section>
@@ -114,18 +150,15 @@
                 <h2>Contact Us</h2>
                 <p>If you have any questions or inquiries, feel free to reach out to us. We're here to help and look forward to hearing from you!</p>
                 <div class="contact-details">
-                    <p><strong>Address:</strong> 1234 Elm Street, Cityville, Country</p>
-                    <p><strong>Email:</strong> contact@website.com</p>
-                    <p><strong>Phone:</strong> +123 456 7890</p>
+                    <p><strong>Address:</strong> MH Saboo Siddik Polytechnic, Byculla-08</p>
+                    <p><strong>Email:</strong> mhssp@co.in</p>
+                    <p><strong>Phone:</strong> +91 8877 9756</p>
                 </div>
             </div>
             <div class="contact-form">
                 <form action="#" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required />
                     <input type="email" name="email" placeholder="Your Email" required />
-                    <input type="button" value="Projects" class="inline">
-                    <input type="button" value="Materials" class="inline">
-                    <input type="button" value="Other" class="inline">
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                     <button type="submit" id="submit-btn">Send Message</button>
                 </form>

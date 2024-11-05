@@ -98,6 +98,41 @@ body{
     padding-left:20px;
     align-items: center;
 }
+.search-suggestion {
+    display:none;
+    text-align: left;
+    width: 400px;
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.search-list {
+    list-style-type: none;
+    text-align: left;
+    border: 1px solid green;
+    margin-top: 5px;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-item {
+    display:none;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid var(--color3);
+    background-color: #fff;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-item:hover {
+    background-color: rgb(201, 255, 201);
+    color: var(--color1);
+}
+
 #create-account{
     background-image: url(images/comp-bg.jpg);
     background-position: center;
