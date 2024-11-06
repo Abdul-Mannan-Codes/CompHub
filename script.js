@@ -23,6 +23,34 @@ function loadContent(){
 function display(element,value){
     document.querySelector(element).style.display = value;
 }
+function browse(element){
+    var sem = element.textContent.trim().toLowerCase();
+    switch(sem){
+        case "first semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        case "second semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        case "third semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        case "fourth semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        case "fifth semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        case "sixth semester":
+            window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+            break;
+        default:
+            alert("Some uneceptional browsing occurred");
+    }
+}
+function browse(){
+    window.location.href = "https://msbtestudyresources.in/subjects/CO/COSyllabus.html";
+}
 function startCounter(){
     if(flag){
         timer1=setInterval(incAccount,10);
